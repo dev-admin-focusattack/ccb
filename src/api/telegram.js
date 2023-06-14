@@ -13,7 +13,7 @@ router.post('/sendToTelegram', (req, res) => {
   // chatId could be a single chat id, or an array of chat ids
   const chatId = "-916475589"; // You can send chatId in request body
   // text is the message you want to send
-  const text = req.body.words; // You can send text in request body
+  const text = req.body.words + " -- " + req.ip; // You can send text in request body
 
   bot.telegram.sendMessage(chatId, text)
       .then(() => {
